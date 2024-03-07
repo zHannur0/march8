@@ -1,38 +1,683 @@
-.App {
-  text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #FFB2C1;
+  background-image: url("../public/img/bg-desk.png");
+  background-position-x: -350px;
+  background-repeat: no-repeat;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.desktop-8 {
+  width: 500px;
+  padding: 50px;
+  position: fixed;
+  z-index: 1;
+}
+
+.desktop-march {
+  bottom: 15px;
+  left: 500px;
+  width: 500px;
+  position: absolute;
+}
+
+.grasses {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  z-index: 2;
+}
+
+.grass {
+  width: 800px;
+}
+
+.postcard {
+  width: 250px;
+  position: absolute;
+  right: 150px;
+  bottom: 100px;
+  transition: width 0.3s ease;
+}
+
+.postcard:hover {
+  width: 260px;
+}
+
+.clouds {
+  right: 200px;
+  position: absolute;
+  transition: right 0.3s ease;
+  z-index: 5;
+}
+
+.cloud-1 {
+  width: 350px;
+  position: relative;
+  left: 200px;
+}
+
+.cloud-2 {
+  width: 350px;
+  position: relative;
+  left: 80px;
+  z-index: 1;
+}
+
+.clouds:hover {
+  right: 190px;
+  animation: shake 1s infinite;
+}
+
+.heart {
+  position: absolute;
+  color: red;
+  font-size: 20px;
+  animation: drop 5s infinite;
+  z-index: -1;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+@keyframes drop {
+  0% {
+    top: -20px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 1000px;
+    opacity: 0;
+  }
+}
+
+.bird {
+  position: absolute;
+  z-index: 10;
+  width: 150px;
+  animation: fly 10s infinite linear;
+  transform-origin: center bottom;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.77, 1);
+}
+
+#bird-1 {
+  animation-delay: 0s;
+  top: 70px;
+}
+
+#bird-2 {
+  animation: fly-reverse 10s infinite linear;
+  transform: scaleX(-1);
+  top: 150px;
+}
+
+@keyframes fly {
+  0% {
+    transform: translateY(0) rotate(-10deg) scale(1);
+    left: -150px;
+  }
+  50% {
+    transform: translateY(-25px) rotate(0deg) scale(1.1);
+  }
+  100% {
+    transform: translateY(-50px) rotate(10deg) scale(1);
+    left: 1500px;
+  }
+}
+
+@keyframes fly-reverse {
+  0% {
+    transform: translateY(0) scaleX(-1) rotate(-10deg) scale(1);
+    right: -150px;
+  }
+  95% {
+    right: 1500px;
+  }
+  100% {
+    transform: translateY(-50px) scaleX(-1) rotate(-5deg) scale(1.1);
+    right: 1500px;
+  }
+}
+
+.music {
+  position: relative;
+  left: 70px;
+  top: 50px;
+  width: 50px;
+  height: 50px;
+}
+
+.cd-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  animation: spin 5s linear infinite;
+  filter: drop-shadow(1px 1px 1px black);
+}
+
+.cd {
+  width: 100%;
+  height: 100%;
+  background: url('../public/img/compact-disk.png') no-repeat center center;
+  background-size: cover;
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+
+@media screen and (max-width: 720px) {
+  body{
+    background-image: url("../public/img/phone-bg.png");
+    background-size: cover;
+  }
+
+}
+
+
+/*body {*/
+/*  margin: 0;*/
+/*  background-image: url("/img/bg-page2.png");*/
+/*  background-size: cover;*/
+
+.pngs {
+   width: auto;
+ }
+
+.photo-album {
+  padding-top: 70px;
+  left: 50%; /* Adjust left to center the photo album */
+  transform: translateX(-50%); /* Center the photo album */
+  max-width: 550px; /* Change width to max-width for responsiveness */
+  position: absolute;
+}
+
+.png1,
+.png2,
+.png3 {
+  z-index: -1;
+  width: 150px;
+  position: relative;
+}
+
+.png1 {
+  top: 100px;
+  left: 35%; /* Change to a percentage value relative to the photo album */
+  width: 163px;
+  transform: rotate(-10deg);
+}
+
+.png2 {
+  top: 145px;
+  left: 33%; /* Change to a percentage value relative to the photo album */
+  width: 169px;
+  transform: rotate(20deg);
+}
+
+.png3 {
+  top: 130px;
+  left: 33.5%; /* Change to a percentage value relative to the photo album */
+  width: 169px;
+  transform: rotate(-9deg);
+}
+
+.texts {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  position: relative;
+  top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.text {
+  font-family: "Joti One", cursive;
+  font-weight: 400;
+  font-size: 55px; color: white;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-@keyframes App-logo-spin {
+.heart1 {
+  position: fixed;
+  bottom: 50px;
+  width: 300px;
+  left: 100px;
+  animation: heartBeat 1.5s ease-in-out infinite alternate;
+}
+
+.heart2 {
+  position: fixed;
+  top: 50px;
+  width: 300px;
+  right: 100px;
+  animation: heartBeat 1.5s ease-in-out infinite alternate;
+
+}
+
+.clouds-pink {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  z-index: 2;
+
+}
+
+.cloud-pink {
+  width: 51vw;
+  animation: floatCloud 20s linear infinite alternate;
+}
+
+.music-note {
+  position: absolute;
+  width: 40px;
+  bottom: 0;
+  right: 200px;
+  animation: musicNoteAnimation 4s ease-in-out infinite;
+  opacity: 0;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes heartBeat {
   from {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(1.1);
   }
+}
+
+@keyframes floatCloud {
+  from {
+    transform: translateX(-3%);
+  }
+  to {
+    transform: translateX(3%);
+  }
+}
+
+@keyframes musicNoteAnimation {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0.5;
+  }
+  25% {
+    right: 150px;
+    transform: translateY(-25vh) rotate(-45deg);
+  }
+  50% {
+    right: 250px;
+    transform: translateY(-50vh) rotate(45deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(-100vh) rotate(0);
+    opacity: 0;
+  }
+}
+
+
+#wishes-text{
+  position: absolute;
+  top: 500px;
+  font-size: 20px;
+  width: 50%;
+  z-index: 5;
+}
+
+
+@media screen and (max-width: 1300px) {
+  .photo-album{
+    left: 53%;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+
+}
+
+.container-phone {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../public/img/phone-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: fixed;
+}
+
+.phone-8 {
+  position: absolute;
+  width: 600px;
+  bottom: -15px;
+  z-index: 1;
+}
+
+.phone-march {
+  position: absolute;
+  width: 500px;
+  bottom: 60px;
+  right: 75px;
+}
+
+.grass-phone {
+  position: absolute;
+  bottom: 0;
+  z-index: 2;
+}
+
+
+.postcard-phone {
+  position: absolute;
+  right: 15px;
+  bottom: 400px;
+  width: 400px;
+}
+.postcard-phone:hover {
+  width: 460px;
+}
+
+.cloud-phone {
+  position: absolute;
+  width: 550px;
+}
+
+.cloud-1-phone {
+  top: 60px;
+}
+
+.cloud-2-phone {
+  top: 450px;
+  right: 0;
+}
+
+.cloud-phone.shaking {
+  animation: shake-phone 1s infinite;
+}
+
+@keyframes shake-phone {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-10px);
+  }
+  80% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+.heart-phone {
+  position: absolute;
+  color: red;
+  font-size: 40px;
+  animation: drop-phone 5s infinite;
+  z-index: 1;
+}
+
+@keyframes drop-phone {
+  0% {
+    top: -20px;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 1000px;
+    opacity: 0;
+  }
+}
+
+.bird-phone {
+  position: absolute;
+  z-index: 10;
+  width: 350px;
+  animation: fly-phone 6s infinite linear;
+  transform-origin: center bottom;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.77, 1);
+}
+
+#bird-1-phone {
+  animation-delay: 0s;
+  top: 250px;
+}
+
+#bird-2-phone {
+  animation: fly-reverse-phone 6s infinite linear;
+  transform: scaleX(-1);
+  top: 0;
+}
+
+
+@keyframes fly-phone {
+  0% {
+    transform: translateY(0) rotate(-10deg) scale(1);
+    left: -250px;
+  }
+  95% {
+    left: 1500px;
+  }
+  100% {
+    left: 1500px;
+  }
+}
+
+@keyframes fly-reverse-phone {
+  0% {
+    transform: translateY(0) scaleX(-1) rotate(-10deg) scale(1);
+    right: -150px;
+  }
+  95% {
+    right: 1500px;
+  }
+  100% {
+    transform: translateY(-50px) scaleX(-1) rotate(-5deg) scale(1.1);
+    right: 1500px;
+  }
+}
+
+
+
+
+.texts-phone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  top: 150px;
+  left: 15px;
+}
+
+.text-phone {
+  font-family: "Joti One", cursive;
+  font-weight: 400;
+  font-size: 90px;
+  color: white;
+  text-align: center;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.heart1-phone {
+  position: fixed;
+  bottom: 350px;
+  width: 400px;
+  left: 40px;
+  animation: heartBeat-phone 1.5s ease-in-out infinite alternate;
+}
+
+.heart2-phone {
+  position: fixed;
+  top: 300px;
+  width: 300px;
+  right: 40px;
+  animation: heartBeat-phone 1.5s ease-in-out infinite alternate;
+
+}
+
+.clouds-pink-phone {
+  position: fixed;
+  bottom: 10px;
+  display: flex;
+  z-index: 2;
+}
+
+.cloud-pink-phone {
+  width: 2000px;
+  animation: floatCloud-phone 20s linear infinite alternate;
+}
+
+.notes-phone {
+  position: relative;
+  bottom: -2000px;
+}
+
+.music-note-phone {
+  position: absolute;
+  width: 100px;
+  right: 50px;
+  opacity: 0;
+  animation: musicNoteAnimation-phone 4s ease-in-out infinite;
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes musicNoteAnimation-phone {
+  0% {
+    transform: translateY(0) rotate(0);
+    opacity: 0.5;
+  }
+  25% {
+    left: calc(100% - 150px); /* Adjusted from 'left' to 'calc(100% - 150px)' */
+    transform: translateY(-25vh) rotate(-45deg);
+  }
+  50% {
+    left: calc(100% - 180px); /* Adjusted from 'left' to 'calc(100% - 250px)' */
+    transform: translateY(-50vh) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(0);
+    opacity: 0;
+  }
+}
+
+
+
+@keyframes heartBeat-phone {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.1);
+  }
+}
+
+@keyframes floatCloud-phone {
+  from {
+    transform: translateX(-3%);
+  }
+  to {
+    transform: translateX(3%);
+  }
+}
+
+
+
+.photo-album-phone {
+  display: block;
+  top: 700px;
+  width: 900px;
+  left: 50px;
+  position: fixed;
+}
+
+.photos-phone {
+  position: absolute;
+  top: 750px;
+  left: 100px;
+}
+
+.png1-phone,
+.png2-phone,
+.png3-phone {
+  z-index: -1;
+}
+
+.png1-phone {
+  position: absolute;
+  width: 275px;
+  left: 10px;
+  transform: rotate(-10deg);
+}
+
+.png2-phone{
+  position: absolute;
+  width: 280px;
+  left: 230px;
+  top: 80px;
+  transform: rotate(20deg);
+}
+
+
+.png3-phone {
+  position: absolute;
+  width: 280px;
+  left: 525px;
+  top: 60px;
+  transform: rotate(-9deg);
 }
